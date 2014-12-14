@@ -8,6 +8,17 @@
 </head>
 <body>
 
+<div class="nave">
+  <%= link_to 'New Topic', new_topic_path %>
+  <%= link_to 'Topics', topics_path %>
+</div>
+
+<div class="flash-msg">
+  <% flash.each do |key, msg| %>
+    <%= msg %>
+  <% end %>
+</div>
+
 <%= yield %>
 
 </body>

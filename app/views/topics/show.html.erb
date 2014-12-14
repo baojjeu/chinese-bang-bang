@@ -1,0 +1,5 @@
+<h1><%= @topic.name %></h1>
+<ul>
+  <%= render @examples %>
+</ul>
+<%= link_to 'New Example', new_topic_example_path(@topic) %>
