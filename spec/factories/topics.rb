@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :topic do
-    name "Example Topic"
+    name "吃多一点。"
   end
-
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141214053247) do
+ActiveRecord::Schema.define(version: 20141214125604) do
 
   create_table "examples", force: true do |t|
     t.string   "sentence"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 20141214053247) do
   end
 
   add_index "examples", ["topic_id"], name: "index_examples_on_topic_id"
+
+  create_table "hanyus", force: true do |t|
+    t.string   "pinyin"
+    t.integer  "pinyinable_id"
+    t.string   "pinyinable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "topics", force: true do |t|
     t.string   "name"
