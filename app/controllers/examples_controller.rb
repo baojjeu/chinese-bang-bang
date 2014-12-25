@@ -3,14 +3,15 @@ class ExamplesController < ApplicationController
 
   def new
     @example = @topic.examples.build
+    @example.build_hanyu
   end
 
   def edit
   end
 
   def create
-    example = @topic.examples.new(example_params)
-    if example.save
+    @example = @topic.examples.new(example_params)
+    if @example.save
       redirect_to @topic,
                   flash: { success: 'Example is succesfully created.' }
     else
@@ -25,6 +26,6 @@ class ExamplesController < ApplicationController
     end
 
     def example_params
-      params.require(:example).permit(:sentence)
+      params.require(:example).permit(:sentence, { hanyu_attributes: [:meaning] })
     end
 end

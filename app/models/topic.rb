@@ -1,10 +1,14 @@
 class Topic < ActiveRecord::Base
-  before_create :generate_pinyin
+
+  after_create :generate_pinyin
 
   has_many :examples
   has_one :hanyu, as: :pinyinable
 
-  def generate_pinyin
-    build_hanyu pinyin: PinYin.sentence(name, :unicode)
-  end
+  accepts_nested_attributes_for :hanyu
+
+  private
+    def generate_pinyin
+      self.hanyu.update pinyin: PinYin.sentence(name, :unicode)
+    end
 end

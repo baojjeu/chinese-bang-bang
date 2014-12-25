@@ -1,4 +1,9 @@
 <%= simple_form_for @topic do |f| %>
   <%= f.input :name, label: 'Learning Topic' %>
+
+  <%= f.simple_fields_for :hanyu do |hanyu_field| %>
+    <%= hanyu_field.input :meaning %>
+  <% end %>
+
   <%= f.button :submit %>
 <% end %>

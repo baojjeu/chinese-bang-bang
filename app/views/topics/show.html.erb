@@ -1,8 +1,12 @@
-<h1>
-  <%= @topic.name %> <br>
-  <%= @topic.hanyu.pinyin %>
-</h1>
-<ul>
-  <%= render @examples %>
-</ul>
+<div id="topic">
+  <h1>
+    <%= @topic.name %> <br>
+    <%= @topic.hanyu.pinyin %> <br>
+    <%= @topic.hanyu.meaning %>
+  </h1>
+
+  <ul class="examples">
+    <%= render @examples %>
+  </ul>
+</div>
 <%= link_to 'New Example', new_topic_example_path(@topic) %>

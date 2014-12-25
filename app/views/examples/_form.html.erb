@@ -1,4 +1,9 @@
 <%= simple_form_for [@topic, @example] do |f| %>
   <%= f.input :sentence, label: 'Example Sentence' %>
+
+  <%= f.simple_fields_for :hanyu do |hanyu_field| %>
+    <%= hanyu_field.input :meaning %>
+  <% end %>
+
   <%= f.button :submit %>
 <% end %>

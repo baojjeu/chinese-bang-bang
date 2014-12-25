@@ -11,16 +11,17 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new
+    @topic.build_hanyu
   end
 
   def edit
   end
 
   def create
-    topic = Topic.new(topic_params)
-    if topic.save
-      redirect_to topics_path,
-                  flash: { success: "Topic [#{topic.name}] is succesfully created." }
+    @topic = Topic.new(topic_params)
+    if @topic.save
+      redirect_to @topic,
+                  flash: { success: "Topic is succesfully created." }
     else
       flash[:error] = 'Topic has not been created.'
       render :new
@@ -29,6 +30,6 @@ class TopicsController < ApplicationController
 
   private
     def topic_params
-      params.require(:topic).permit(:name)
+      params.require(:topic).permit(:name, hanyu_attributes: [:meaning])
     end
 end

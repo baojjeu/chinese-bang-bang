@@ -1,16 +1,15 @@
 feature 'Creating Topics' do
-  let!(:topic) { FactoryGirl.create(:topic) }
 
   before do
     visit '/'
     click_link 'New Topic'
   end
 
-  scenario 'Creating a topic' do
-    fill_in 'Learning Topic', with: topic.name
+  scenario 'creating a topic' do
+    fill_in 'Learning Topic', with: '刚刚'
+    fill_in 'Meaning', with: 'Just now.'
     click_button 'Create Topic'
 
-    expect(page).to have_content "Topic [#{topic.name}] is succesfully created."
-    expect(page).to have_content topic.name
+    expect(page).to have_content 'Topic is succesfully created.'
   end
 end

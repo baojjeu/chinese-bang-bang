@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141214125604) do
+ActiveRecord::Schema.define(version: 20141226022519) do
 
   create_table "examples", force: true do |t|
     t.string   "sentence"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20141214125604) do
     t.string   "pinyinable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "meaning"
   end
 
   create_table "topics", force: true do |t|

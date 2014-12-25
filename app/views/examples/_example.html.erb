@@ -1,3 +1,6 @@
 <li>
   <%= example.sentence %>
+  <%= example.hanyu.pinyin if example.hanyu.present? %> <br>
+  <%= example.hanyu.meaning %>
 </li>
+<br>
