@@ -7,6 +7,7 @@ class ExamplesController < ApplicationController
   end
 
   def edit
+    @example = @topic.examples.find(params[:id])
   end
 
   def create

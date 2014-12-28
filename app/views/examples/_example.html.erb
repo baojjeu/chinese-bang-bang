@@ -1,6 +1,6 @@
 <li>
-  <%= example.sentence %>
-  <%= example.hanyu.pinyin if example.hanyu.present? %> <br>
-  <%= example.hanyu.meaning %>
+  <%= topic_content_for example.sentence, 'highlight' %> <br>
+  <%= topic_content_for example.hanyu.pinyin, 'highlight' %> <br>
+  <span class="meaning"><%= topic_content_for example.hanyu.meaning, 'highlight' %></span>
 </li>
 <br>
