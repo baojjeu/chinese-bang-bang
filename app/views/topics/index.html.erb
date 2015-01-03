@@ -1,4 +1,28 @@
 <h1>Topics</h1>
-<ul>
-  <%= render @topics %>
-</ul>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Learning Topics</h3>
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Name</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @topics.each do |topic| %>
+          <tr>
+            <td><%= topic.created_at.strftime('%Y-%m-%d') %></td>
+            <td><%= link_to topic.name, topic %></td>
+            <td><%= topic.hanyu.meaning %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

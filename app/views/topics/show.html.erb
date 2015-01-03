@@ -1,12 +1,43 @@
 <div id="topic">
-  <h1>
-    <%= @topic.name %> <br>
-    <%= @topic.hanyu.pinyin %> <br>
+  <h3>
     <%= @topic.hanyu.meaning %>
-  </h1>
+  </h3>
 
-  <ul class="examples">
-    <%= render @examples %>
-  </ul>
+  <div class="panel">
+    <ul class="nav nav-tabs" id="myTab1">
+      <li class="active">
+        <a data-toggle="tab" href="#pronunciation">Pronunciation</a>
+      </li>
+
+      <li>
+        <a data-toggle="tab" href="#meaning">Meaning</a>
+      </li>
+
+      <li>
+        <a data-toggle="tab" href="#example">Example</a>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade active in" id="pronunciation">
+        <ruby>
+          <% pinyin_on_the_top_for(@topic.name).each do |word| %>
+            <%= word %> <rp>(</rp><rt><%= PinYin.sentence(word, :unicode) %></rt><rp>)</rp>
+          <% end %>
+        </ruby>
+      </div>
+
+      <div class="tab-pane fade" id="meaning">
+
+      </div>
+
+      <div class="tab-pane fade" id="example">
+        <ul class="examples">
+          <%= render @examples %>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
+
 <%= link_to 'New Example', new_topic_example_path(@topic) %>

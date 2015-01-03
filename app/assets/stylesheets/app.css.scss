@@ -1,10 +1,28 @@
 body {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  padding-top: 35px;
+  background: #eeeff3;
+}
+
+#topic {
+  .topic-pinyin, .topic-meaning {
+    display: block;
+    font-size: 23px;
+    color: gray;
+  }
+
+  .topic-meaning {
+    font-size: 20px;
+  }
 }
 
 .examples {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
   li {
-    font-size: 14px;
+    border-bottom: 1px dotted #e3e3e3;
   }
 
   .highlight {
@@ -14,5 +32,15 @@ body {
 
   .meaning {
     color: gray;
+  }
+}
+
+#pronunciation {
+  text-align: center;
+  ruby {
+    font-size: 2.5em;
+    rt {
+      color: #acacac;
+    }
   }
 }

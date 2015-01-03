@@ -12,5 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap.min
+//= require icheck.min
+//= require jquery.fs.selecter.min
+//= require jquery.fs.stepper.min
 //= require turbolinks
 //= require_tree .
