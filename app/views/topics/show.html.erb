@@ -10,31 +10,31 @@
       </li>
 
       <li>
-        <a data-toggle="tab" href="#meaning">Meaning</a>
+        <a data-toggle="tab" href="#example">Example</a>
       </li>
 
       <li>
-        <a data-toggle="tab" href="#example">Example</a>
+        <a data-toggle="tab" href="#extra">Extra Info</a>
       </li>
     </ul>
 
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade active in" id="pronunciation">
         <ruby>
-          <% pinyin_on_the_top_for(@topic.name).each do |word| %>
+          <% split_topic(@topic.name).each do |word| %>
             <%= word %> <rp>(</rp><rt><%= PinYin.sentence(word, :unicode) %></rt><rp>)</rp>
           <% end %>
         </ruby>
-      </div>
-
-      <div class="tab-pane fade" id="meaning">
-
       </div>
 
       <div class="tab-pane fade" id="example">
         <ul class="examples">
           <%= render @examples %>
         </ul>
+      </div>
+
+      <div class="tab-pane fade" id="extra">
+        <h1>extra info</h1>
       </div>
     </div>
   </div>
