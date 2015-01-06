@@ -16,6 +16,7 @@ gem 'carrierwave'
 gem 'devise'
 gem 'jquery-turbolinks'
 gem 'faker'
+gem 'kaminari'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
