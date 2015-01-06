@@ -5,6 +5,8 @@ class Example < ActiveRecord::Base
   belongs_to :topic
   has_one :hanyu, as: :pinyinable
 
+  validates :sentence, presence: true
+
   accepts_nested_attributes_for :hanyu
 
   private

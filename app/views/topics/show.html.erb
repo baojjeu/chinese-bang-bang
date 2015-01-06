@@ -25,6 +25,8 @@
             <%= word %> <rp>(</rp><rt><%= PinYin.sentence(word, :unicode) %></rt><rp>)</rp>
           <% end %>
         </ruby>
+        <br>
+        <%= audio_tag(@topic.hanyu.speaking.to_s, controls: true) %>
       </div>
 
       <div class="tab-pane fade" id="example">
@@ -34,10 +36,13 @@
       </div>
 
       <div class="tab-pane fade" id="extra">
-        <h1>extra info</h1>
+        <% if @topic.info.present? %>
+          <%= simple_format @topic.info %>
+        <% else %>
+          There is no extra information here.
+        <% end %>
       </div>
     </div>
   </div>
 </div>
-
-<%= link_to 'New Example', new_topic_example_path(@topic) %>
+<%= link_to 'new example', new_topic_example_path(@topic) %>

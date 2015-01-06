@@ -1,6 +1,7 @@
 <li>
-  <%= topic_content_for example.sentence, 'highlight' %> <br>
-  <%= example.hanyu.pinyin %> <br>
-  <span class="meaning"><%= topic_content_for example.hanyu.meaning, 'highlight' %></span>
+  <%= customized_content_for example.sentence, 'highlight' %> <br>
+  <%= customized_content_for example.hanyu.pinyin, 'highlight' %> <br>
+  <span class="meaning"><%= customized_content_for example.hanyu.meaning, 'highlight' %></span> <br>
+  <%= audio_tag(example.hanyu.speaking.to_s, controls: true) %>
 </li>
 <br>

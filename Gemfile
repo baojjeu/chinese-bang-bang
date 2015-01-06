@@ -12,6 +12,9 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'simple_form'
 gem 'ruby-pinyin'
+gem 'carrierwave'
+gem 'devise'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
