@@ -12,6 +12,7 @@ class Topic < ActiveRecord::Base
 
   private
     def generate_pinyin
-      self.hanyu.update pinyin: PinYin.sentence(name, :unicode)
+      build_hanyu pinyin: PinYin.sentence(name, :unicode)
+      save
     end
 end

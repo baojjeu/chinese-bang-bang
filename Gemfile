@@ -15,6 +15,7 @@ gem 'ruby-pinyin'
 gem 'carrierwave'
 gem 'devise'
 gem 'jquery-turbolinks'
+gem 'faker'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

@@ -11,6 +11,7 @@ class Example < ActiveRecord::Base
 
   private
     def generate_pinyin
-      self.hanyu.update pinyin: PinYin.sentence(sentence, :unicode)
+      build_hanyu pinyin: PinYin.sentence(sentence, :unicode)
+      save
     end
 end
