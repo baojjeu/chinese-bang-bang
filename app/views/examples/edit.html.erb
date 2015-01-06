@@ -1,10 +1,23 @@
-<%= simple_form_for [@topic, @example] do |f| %>
-  <%= f.input :sentence %>
+<h1>Check again</h1>
+<div class="panel">
+  <div class="panel-body">
+    <%= simple_form_for [@topic, @example] do |f| %>
+      <%= f.input :sentence,
+        label: 'Example Sentence',
+        wrapper_html: { class: 'form-group' },
+        input_html: { class: 'form-control' } %>
 
-  <%= f.simple_fields_for :hanyu do |hanyu_field| %>
-    <%= hanyu_field.input :pinyin %>
-    <%= hanyu_field.input :meaning %>
-  <% end %>
+      <%= f.simple_fields_for :hanyu do |hanyu_field| %>
+        <%= hanyu_field.input :pinyin,
+          wrapper_html: { class: 'form-group' },
+          input_html: { class: 'form-control' } %>
 
-  <%= f.button :submit %>
-<% end %>
+        <%= hanyu_field.input :meaning,
+          wrapper_html: { class: 'form-group' },
+          input_html: { class: 'form-control' } %>
+      <% end %>
+
+      <%= f.button :submit, 'Create' %>
+    <% end %>
+  </div>
+</div>

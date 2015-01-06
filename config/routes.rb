@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   root 'topics#index'
 
   resources :topics do
+    collection do
+      get :random
+    end
+
     resources :examples
   end
 

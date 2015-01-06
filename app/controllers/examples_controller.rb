@@ -24,7 +24,7 @@ class ExamplesController < ApplicationController
     if @example.update(example_params)
       redirect_to @topic
     else
-      render :revise
+      render :edit
     end
   end
 

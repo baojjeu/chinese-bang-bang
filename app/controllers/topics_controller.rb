@@ -28,6 +28,11 @@ class TopicsController < ApplicationController
     end
   end
 
+  def random
+    @topic = Topic.all.sample
+    redirect_to @topic
+  end
+
   private
     def topic_params
       params.require(:topic).permit(:name, { hanyu_attributes: [:meaning, :speaking] })
