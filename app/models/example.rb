@@ -1,6 +1,6 @@
 class Example < ActiveRecord::Base
 
-  after_save :generate_pinyin
+  after_create :generate_pinyin
 
   belongs_to :topic
   has_one :hanyu, as: :pinyinable
