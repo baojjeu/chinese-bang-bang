@@ -1,5 +1,7 @@
 class TopicsController < ApplicationController
 
+  before_action :set_topic, except: [:new, :create, :index]
+
   def index
     @topics = Topic.page(params[:page]).per(5)
   end
@@ -28,13 +30,25 @@ class TopicsController < ApplicationController
     end
   end
 
+  def update
+    if @topic.update(topic_params)
+      redirect_to @topic
+    else
+      render :edit
+    end
+  end
+
   def random
     @topic = Topic.all.sample
     redirect_to @topic
   end
 
   private
+    def set_topic
+      @topic = Topic.find(params[:id])
+    end
+
     def topic_params
-      params.require(:topic).permit(:name, { hanyu_attributes: [:meaning, :speaking] })
+      params.require(:topic).permit(:name, :info, { hanyu_attributes: [:meaning, :speaking] })
     end
 end

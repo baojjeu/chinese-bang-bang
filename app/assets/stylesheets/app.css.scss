@@ -17,6 +17,11 @@ body {
   }
 }
 
+.highlight {
+  font-weight: bold;
+  color: #ef4348;
+}
+
 .examples {
   margin: 0;
   padding: 0;
@@ -24,12 +29,6 @@ body {
   li {
     border-bottom: 1px dotted #e3e3e3;
   }
-
-  .highlight {
-    font-weight: bold;
-    color: #ef4348;
-  }
-
   .meaning {
     color: gray;
   }

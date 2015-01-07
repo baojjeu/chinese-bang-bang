@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    root 'base#index'
+    root 'base#index', as: ''
   end
 end

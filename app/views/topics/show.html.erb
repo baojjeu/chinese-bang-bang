@@ -37,7 +37,7 @@
 
       <div class="tab-pane fade" id="extra">
         <% if @topic.info.present? %>
-          <%= simple_format @topic.info %>
+          <%= simple_format(customized_content_for(@topic.info, 'highlight')) %>
         <% else %>
           There is no extra information here.
         <% end %>
@@ -47,4 +47,4 @@
 </div>
 
 <%= link_to 'Back', topics_path, class: 'btn' %>
-<%= link_to 'Random Topic', random_topics_path, class: 'btn btn-primary pull-right' %>
+<%= link_to 'Random Topic', random_topics_path, class: 'btn pull-right' %>
