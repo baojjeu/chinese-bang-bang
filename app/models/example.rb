@@ -1,5 +1,7 @@
 class Example < ActiveRecord::Base
 
+  default_scope  { order('created_at asc') }
+
   after_create :generate_pinyin
 
   belongs_to :topic
