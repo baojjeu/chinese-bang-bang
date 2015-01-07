@@ -1,7 +1,7 @@
 class Topic < ActiveRecord::Base
   default_scope  { order('created_at desc') }
 
-  after_create :generate_pinyin
+  after_save :generate_pinyin
 
   has_many :examples, dependent: :destroy
   has_one :hanyu, as: :pinyinable
@@ -12,7 +12,6 @@ class Topic < ActiveRecord::Base
 
   private
     def generate_pinyin
-      build_hanyu pinyin: PinYin.sentence(name, :unicode)
-      save
+      self.hanyu.update pinyin: PinYin.sentence(name, :unicode)
     end
 end

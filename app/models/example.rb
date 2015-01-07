@@ -1,6 +1,6 @@
 class Example < ActiveRecord::Base
 
-  after_create :generate_pinyin
+  after_save :generate_pinyin
 
   belongs_to :topic
   has_one :hanyu, as: :pinyinable
@@ -11,7 +11,6 @@ class Example < ActiveRecord::Base
 
   private
     def generate_pinyin
-      build_hanyu pinyin: PinYin.sentence(sentence, :unicode)
-      save
+      self.hanyu.update pinyin: PinYin.sentence(sentence, :unicode)
     end
 end
