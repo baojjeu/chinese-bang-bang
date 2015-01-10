@@ -4,6 +4,7 @@ class TopicsController < ApplicationController
 
   def index
     @topics = Topic.page(params[:page]).per(5)
+    @topics = @topics.is_published
   end
 
   def show
@@ -21,9 +22,11 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new(topic_params)
+    @topic.published_at = Time.zone.now if publishing?
+
     if @topic.save
       redirect_to @topic,
-                  flash: { success: "Topic is succesfully created." }
+        flash: { success: "Topic is succesfully created." }
     else
       flash[:danger] = 'Topic has not been created.'
       render :new
@@ -31,6 +34,8 @@ class TopicsController < ApplicationController
   end
 
   def update
+    @topic.published_at = Time.zone.now if publishing?
+
     if @topic.update(topic_params)
       redirect_to @topic
     else
@@ -50,5 +55,9 @@ class TopicsController < ApplicationController
 
     def topic_params
       params.require(:topic).permit(:name, :info, { hanyu_attributes: [:meaning, :speaking] })
+    end
+
+    def publishing?
+      params[:commit] == "Publish"
     end
 end

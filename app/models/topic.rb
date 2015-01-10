@@ -1,5 +1,6 @@
 class Topic < ActiveRecord::Base
   default_scope  { order('created_at desc') }
+  scope :is_published, -> { where.not(published_at: nil) }
 
   after_save :generate_pinyin
 
@@ -9,6 +10,11 @@ class Topic < ActiveRecord::Base
   validates :name, presence: true
 
   accepts_nested_attributes_for :hanyu
+
+
+  def published?
+    published_at?
+  end
 
   private
     def generate_pinyin
