@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
 
-  before_action :set_topic, except: [:new, :create, :index]
+  before_action :set_topic, except: [:new, :create, :index, :random]
 
   def index
     @topics = Topic.page(params[:page]).per(5)
@@ -44,8 +44,8 @@ class TopicsController < ApplicationController
   end
 
   def random
-    @topic = Topic.all.sample
-    redirect_to @topic
+    @topic = Topic.is_published.map { |topic| topic.id }.sample
+    redirect_to topic_path(@topic)
   end
 
   private
