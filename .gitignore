@@ -15,5 +15,4 @@
 /log/*.log
 /tmp
 
-# Secret
-/config/secrets.yml
+/public
