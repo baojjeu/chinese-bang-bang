@@ -16,6 +16,7 @@ gem 'devise'
 gem 'jquery-turbolinks'
 gem 'faker'
 gem 'kaminari'
+gem 'fog'
 
 group :development, :test do
   gem 'sqlite3'
