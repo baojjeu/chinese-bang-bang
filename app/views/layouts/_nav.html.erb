@@ -1,0 +1,34 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header"><button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-4"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <%= link_to 'DailyChinese', root_url, class: 'navbar-brand' %></div>
+
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-4">
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= current_user.email %><b class="caret"></b></a>
+            <ul class="dropdown-menu" role="menu">
+              <li class="dropdown-header">Features</li>
+              <% if current_user.admin? %>
+                <li><%= link_to 'Admin Zone', admin_path %></li>
+              <% end %>
+              <li><%= link_to 'Profile' %></li>
+              <li class="divider"></li>
+              <li class="disabled"></li>
+              <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to 'Sign In', new_user_session_path %></li>
+        <% end %>
+      </ul>
+
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'Topcis', topics_path %></li>
+        <li><%= link_to 'Random Topic!', random_topics_path %></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
