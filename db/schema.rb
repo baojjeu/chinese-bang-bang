@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150110142538) do
+ActiveRecord::Schema.define(version: 20150111101127) do
 
   create_table "examples", force: true do |t|
     t.string   "sentence"
@@ -29,7 +29,8 @@ ActiveRecord::Schema.define(version: 20150110142538) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "meaning"
-    t.string   "speaking"
+    t.string   "slow_id"
+    t.string   "normal_id"
   end
 
   create_table "topics", force: true do |t|

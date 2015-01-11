@@ -1,52 +1,32 @@
+<h3><%= @topic.hanyu.meaning %></h3>
 <div id="topic">
-  <h3>
-    <%= @topic.hanyu.meaning %>
-  </h3>
-  <% unless @topic.published? %>
-    <span class="label label-default">Draft</span>
-  <% end %>
-
-  <div class="panel">
-    <ul class="nav nav-tabs" id="myTab1">
-      <li class="active">
-        <a data-toggle="tab" href="#pronunciation">Pronunciation</a>
-      </li>
-
-      <li>
-        <a data-toggle="tab" href="#example">Example</a>
-      </li>
-
-      <li>
-        <a data-toggle="tab" href="#extra">Extra Info</a>
-      </li>
-    </ul>
-
-    <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade active in" id="pronunciation">
-        <ruby>
-          <% split_topic(@topic.name).each do |word| %>
-            <%= word %> <rp>(</rp><rt><%= PinYin.sentence(word, :unicode) %></rt><rp>)</rp>
-          <% end %>
-        </ruby>
-        <br>
-        <%= audio_tag(@topic.hanyu.speaking.to_s, controls: true) %>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">Topic</div>
+        <div class="panel-body">
+          <div id="pronunciation">
+            <ruby>
+              <% split_topic(@topic.name).each do |word| %>
+                <%= word %> <rp>(</rp><rt><%= PinYin.sentence(word, :unicode) %></rt><rp>)</rp>
+              <% end %>
+            </ruby>
+            <br>
+              <%= audio_tag(attachment_url(@topic.hanyu, :slow), controls: true) %>
+          </div>
+        </div>
       </div>
+    </div>
 
-      <div class="tab-pane fade" id="example">
-        <ul class="examples">
-          <%= render @examples %>
-        </ul>
-      </div>
-
-      <div class="tab-pane fade" id="extra">
-        <% if @topic.info.present? %>
-          <%= simple_format(customized_content_for(@topic.info, 'highlight')) %>
-        <% else %>
-          There is no extra information here.
-        <% end %>
+    <div class="col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-heading">Example Sentences</div>
+        <div class="panel-body">
+          <div id="examples">
+            <%= render @topic.examples %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-<%= link_to 'Back', topics_path, class: 'btn' %>

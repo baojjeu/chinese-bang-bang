@@ -22,10 +22,11 @@ body {
   color: #ef4348;
 }
 
-.examples {
+#examples {
   margin: 0;
   padding: 0;
   list-style-type: none;
+  font-size: 20px;
   li {
     border-bottom: 1px dotted #e3e3e3;
   }

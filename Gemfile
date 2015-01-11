@@ -17,8 +17,11 @@ gem 'devise'
 gem 'faker'
 gem 'kaminari'
 
-gem 'carrierwave'
-gem 'fog'
+# gem 'carrierwave'
+# gem 'fog'
+gem "mini_magick"
+gem "refile", require: ["refile/rails", "refile/image_processing"]
+gem "aws-sdk"
 
 group :development, :test do
   gem 'sqlite3'
