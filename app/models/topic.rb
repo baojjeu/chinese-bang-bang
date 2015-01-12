@@ -4,6 +4,9 @@ class Topic < ActiveRecord::Base
 
   after_save :generate_pinyin
 
+  has_many :stars
+  has_many :collectors, through: :stars, source: :user
+
   has_many :examples, dependent: :destroy
   has_one :hanyu, as: :pinyinable
 

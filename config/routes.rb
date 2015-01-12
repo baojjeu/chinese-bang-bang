@@ -9,6 +9,11 @@ Rails.application.routes.draw do
       get :random
     end
 
+    member do
+      post :star
+      post :unstar
+    end
+
     resources :examples
   end
 

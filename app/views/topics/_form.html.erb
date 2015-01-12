@@ -10,7 +10,9 @@
           input_html: { class: 'form-control' },
           wrapper_html: { class: 'form-group' } %>
 
-        <%= hanyu_field.attachment_field :slow, direct: true, presigned: true %>
+        <%= hanyu_field.input :speaking,
+          input_html: { class: 'form-control' },
+          wrapper_html: { class: 'form-group' } %>
       <% end %>
 
       <%= f.input :info,

@@ -1,4 +1,9 @@
 <h3><%= @topic.hanyu.meaning %></h3>
+
+<% if user_signed_in? %>
+  <%= render 'user_topic_status' %>
+<% end %>
+
 <div id="topic">
   <div class="row">
     <div class="col-md-4">
@@ -12,7 +17,7 @@
               <% end %>
             </ruby>
             <br>
-              <%= audio_tag(attachment_url(@topic.hanyu, :slow), controls: true) %>
+              <%= audio_tag(@topic.hanyu.speaking.url.to_s, controls: true) %>
           </div>
         </div>
       </div>

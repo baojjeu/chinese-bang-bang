@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.1.5'
 
 gem 'rails', '4.1.8'
 gem 'sass-rails', '~> 4.0.3'
@@ -18,11 +17,11 @@ gem 'devise'
 gem 'faker'
 gem 'kaminari'
 
-# gem 'carrierwave'
-# gem 'fog'
+gem 'carrierwave'
+gem 'fog'
 gem "mini_magick"
-gem "refile", require: ["refile/rails", "refile/image_processing"]
-gem "aws-sdk"
+# gem "refile", require: ["refile/rails", "refile/image_processing"]
+# gem "aws-sdk"
 
 group :development, :test do
   gem 'sqlite3'

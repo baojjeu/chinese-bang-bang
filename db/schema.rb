@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150111101127) do
+ActiveRecord::Schema.define(version: 20150112125805) do
 
   create_table "examples", force: true do |t|
     t.string   "sentence"
@@ -29,9 +29,18 @@ ActiveRecord::Schema.define(version: 20150111101127) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "meaning"
-    t.string   "slow_id"
-    t.string   "normal_id"
+    t.string   "speaking"
   end
+
+  create_table "stars", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "topic_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stars", ["topic_id"], name: "index_stars_on_topic_id"
+  add_index "stars", ["user_id"], name: "index_stars_on_user_id"
 
   create_table "topics", force: true do |t|
     t.string   "name"

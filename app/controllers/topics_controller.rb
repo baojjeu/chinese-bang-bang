@@ -1,5 +1,6 @@
 class TopicsController < ApplicationController
 
+  before_action :authenticate_user!, only: [:star, :unstar]
   before_action :set_topic, except: [:new, :create, :index, :random]
 
   def index
@@ -48,13 +49,27 @@ class TopicsController < ApplicationController
     redirect_to topic_path(@topic)
   end
 
+  def star
+    current_user.star!(@topic)
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def unstar
+    current_user.unstar!(@topic)
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     def set_topic
       @topic = Topic.find(params[:id])
     end
 
     def topic_params
-      params.require(:topic).permit(:name, :info, { hanyu_attributes: [:meaning, :slow, :normal] })
+      params.require(:topic).permit(:name, :info, { hanyu_attributes: [:meaning, :speaking] })
     end
 
     def publishing?
