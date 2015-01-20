@@ -1,5 +1,6 @@
-<li>
-  <%= link_to topic.name, topic %> -
-  <%= link_to 'Edit', edit_topic_path(topic) %> -
-  <%= link_to 'Delete', topic, method: :delete %>
-</li>
+<tr>
+  <td><%= link_to topic.name, topic  %></td>
+  <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
+  <td><%= link_to 'Delete', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <td><%= link_to 'New Example', new_topic_example_path(topic) %></td>
+</tr>

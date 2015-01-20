@@ -1,7 +1,23 @@
 <h1>Admin Zone</h1>
-<ul>
-  <%= render @topics %>
-</ul>
+<div class="panel">
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+        <%= render @topics %>
+      <tbody>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
 <br>
 <%= link_to 'New Topic', new_topic_path %> <br>
 <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
