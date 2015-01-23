@@ -5,7 +5,7 @@ class TopicsController < ApplicationController
 
   def index
     @topics = Topic.page(params[:page]).per(5)
-    @topics = @topics.is_published
+    @topics = @topics.were_published
   end
 
   def show
@@ -23,7 +23,7 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new(topic_params)
-    @topic.published_at = Time.zone.now if publishing?
+    @topic.published_at = publishing? ? Time.zone.now : nil
 
     if @topic.save
       redirect_to @topic,
@@ -35,7 +35,7 @@ class TopicsController < ApplicationController
   end
 
   def update
-    @topic.published_at = Time.zone.now if publishing?
+    @topic.published_at = publishing? ? Time.zone.now : nil
 
     if @topic.update(topic_params)
       redirect_to @topic

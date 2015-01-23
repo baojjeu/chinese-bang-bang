@@ -1,16 +1,24 @@
 <h1>Admin Zone</h1>
+<%= link_to 'New Topic', new_topic_path, class: 'btn' %>
+<br><br>
 <div class="panel">
   <div class="panel-body">
     <table class="table">
       <thead>
         <tr>
-          <th>Topic</th>
+          <th>Published Topic</th>
           <th></th>
           <th></th>
           <th></th>
         </tr>
       </thead>
-        <%= render @topics %>
+        <% if @topics.were_published.empty? %>
+          <tr>
+            <td>No published topics here.</td>
+          </tr>
+        <% else %>
+          <%= render @topics.were_published %>
+        <% end %>
       <tbody>
 
       </tbody>
@@ -18,6 +26,27 @@
   </div>
 </div>
 
-<br>
-<%= link_to 'New Topic', new_topic_path %> <br>
-<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+<div class="panel">
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Draft Topics</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @topics.draft.empty? %>
+          <tr>
+            <td>No drafts here.</td>
+          </tr>
+        <% else %>
+          <%= render @topics.draft %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
