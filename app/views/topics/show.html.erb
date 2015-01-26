@@ -1,8 +1,6 @@
 <h3><%= @topic.hanyu.meaning %></h3>
 
-<% if user_signed_in? %>
-  <%= render 'user_topic_status' %>
-<% end %>
+
 
 <div id="topic">
   <div class="row">
@@ -43,8 +41,11 @@
       <div class="panel panel-default">
         <div class="panel-heading">Comments</div>
         <div class="panel-body">
+          <%= render @topic.comments.select(&:persisted?) %>
         </div>
       </div>
+
+      <%= render 'comments/form' %>
     </div> <!-- exampes -->
   </div>
 </div>

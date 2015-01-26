@@ -11,6 +11,8 @@ class Topic < ActiveRecord::Base
   has_many :examples, dependent: :destroy
   has_one :hanyu, as: :pinyinable
 
+  has_many :comments, as: :commentable
+
   validates :name, presence: true
 
   accepts_nested_attributes_for :hanyu

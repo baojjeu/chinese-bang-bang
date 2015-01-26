@@ -1,0 +1,7 @@
+<%= simple_form_for [@topic, @comment] do |f| %>
+  <%= f.input :content,
+    wrapper_html: { class: 'form-group' },
+    input_html: { class: 'form-control', rows: 10 } %>
+
+  <%= f.button :submit %>
+<% end %>
