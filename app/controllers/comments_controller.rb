@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @topic.comments.build(comment_params)
+    @comment.user = current_user
 
     if @comment.save
       redirect_to @topic

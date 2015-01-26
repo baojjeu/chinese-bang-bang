@@ -1,1 +1,1 @@
-$('.user-topic-status').html("<%= j(link_to 'Unstar', unstar_topic_path(@topic), remote: true, method: :post) %>");
+$('.user-topic-status').html("<%= j(render('unstar_link')) %>");

@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
 
-  before_action :authenticate_user!, only: [:star, :unstar]
+  before_action :authenticate_user!, except: :index
   before_action :set_topic, except: [:new, :create, :index, :random]
 
   def index

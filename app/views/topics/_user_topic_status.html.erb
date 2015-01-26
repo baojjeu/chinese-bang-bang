@@ -1,7 +1,11 @@
 <span class="user-topic-status">
   <% if current_user.stared_topics.include?(@topic) %>
-    <%= link_to 'Unstar', unstar_topic_path(@topic), remote: true, method: :post %>
+    <%= link_to unstar_topic_path(@topic), remote: true, method: :post do %>
+      <span><i class="fa fa-star"></i></span>
+    <% end %>
   <% else %>
-    <%= link_to 'Star', star_topic_path(@topic), remote: true, method: :post %>
+    <%= link_to star_topic_path(@topic), remote: true, method: :post do %>
+      <span><i class="fa fa-star-o"></i></span>
+    <% end %>
   <% end %>
 </span>

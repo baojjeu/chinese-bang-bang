@@ -4,7 +4,7 @@
   </div>
 
   <div class="media-body">
-
+    <p><%= comment.user.email %></p>
     <p><%= comment.created_at.strftime('%Y-%m-%d %H:%M') %></p>
     <p><%= comment.content %></p>
     <%= render comment.comments if not comment.comments.empty? %>

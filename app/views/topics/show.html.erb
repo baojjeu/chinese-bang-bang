@@ -1,12 +1,12 @@
-<h3><%= @topic.hanyu.meaning %></h3>
-
-
-
+<h3><%= @topic.hanyu.meaning %>
+<%= render 'user_topic_status' %></h3>
 <div id="topic">
   <div class="row">
     <div class="col-md-4 col-md-push-8">
       <div class="panel panel-default">
-        <div class="panel-heading">Topic</div>
+        <div class="panel-heading">
+          Topic
+        </div>
         <div class="panel-body">
           <div id="pronunciation">
             <ruby>
@@ -41,7 +41,11 @@
       <div class="panel panel-default">
         <div class="panel-heading">Comments</div>
         <div class="panel-body">
-          <%= render @topic.comments.select(&:persisted?) %>
+          <% if @topic.comments.exists? %>
+            <%= render @topic.comments.select(&:persisted?) %>
+          <% else %>
+            There are no comments for this topic.
+          <% end %>
         </div>
       </div>
 

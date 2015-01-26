@@ -16,6 +16,7 @@ gem 'ruby-pinyin'
 gem 'devise'
 gem 'faker'
 gem 'kaminari'
+gem 'font-awesome-sass'
 
 gem 'carrierwave'
 gem 'fog'
