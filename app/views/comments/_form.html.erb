@@ -1,7 +1,9 @@
-<%= simple_form_for [@topic, @comment] do |f| %>
-  <%= f.input :content,
-    wrapper_html: { class: 'form-group' },
-    input_html: { class: 'form-control', rows: 10 } %>
+<h1></h1>
+<%= simple_form_for @comment, html: { remote: true } do |f| %>
+  <%= f.input :topic_id, as: :hidden, input_html: { value: params[:id] } %>
+  <%= f.input :parent_comment_id, as: :hidden, input_html: { value: params[:parent_id] } %>
 
-  <%= f.button :submit %>
+  <%= f.input :content, label: 'Got question? Leave comments', input_html: { class: 'form-control', rows: 10 }, wrapper_html: { class: 'form-group' }, label_html: { class: 'control-label' } %>
+  <%= f.button :submit, input_html: { class: 'btn' }, wrapper_html: { class: 'form-group' } %>
+
 <% end %>

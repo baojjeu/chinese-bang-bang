@@ -1,0 +1,21 @@
+<div class="media new_comment_form">
+  <div class="media-left">
+    <a href="#" class="media-object"><img src="//lorempixel.com/48/48" alt=""></a>
+  </div>
+
+  <div class="media-body">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Reply as <%= link_to current_user.email, '#' %>
+      </div>
+
+      <div class="panel-body">
+        <%= simple_form_for @comment, html: { remote: true } do |f| %>
+          <%= f.input :parent_comment_id, as: :hidden, input_html: { value: params[:parent_id] } %>
+          <%= f.input :content, input_html: { class: 'form-control', rows: 10 }, wrapper_html: { class: 'form-group' }, label_html: { class: 'control-label' } %>
+          <%= f.button :submit, class: "pull-right" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

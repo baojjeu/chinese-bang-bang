@@ -11,7 +11,7 @@ class Topic < ActiveRecord::Base
   has_many :examples, dependent: :destroy
   has_one :hanyu, as: :pinyinable
 
-  has_many :comments, as: :commentable
+  has_many :comments
 
   validates :name, presence: true
 

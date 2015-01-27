@@ -1,24 +1,26 @@
 class CommentsController < ApplicationController
 
-  before_action :set_topic
+  def new
+    respond_to do |format|
+      format.js { @comment = Comment.new }
+    end
+  end
 
   def create
-    @comment = @topic.comments.build(comment_params)
+    @comment = Comment.new(comment_params)
     @comment.user = current_user
 
-    if @comment.save
-      redirect_to @topic
-    else
-      render 'topics/show'
+    respond_to do |format|
+      if @comment.save
+        format.js { @comment }
+      else
+        format.js { render 'has_error' }
+      end
     end
   end
 
   private
-    def set_topic
-      @topic = Topic.find(params[:topic_id])
-    end
-
     def comment_params
-      params.require(:comment).permit(:content)
+      params.require(:comment).permit(:content, :topic_id, :parent_comment_id)
     end
 end

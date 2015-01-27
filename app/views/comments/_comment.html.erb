@@ -1,12 +1,27 @@
-<div class="media">
+<% if comment == @comment %>
+<div class="media new_created_comment" style="display: none" id="comment-<%= comment.id %>">
+<% else %>
+<div class="media" id="comment-<%= comment.id %>">
+<% end %>
+
   <div class="media-left">
-    <a href="#" class="media-object"><img src="http://placehold.it/64x64" alt=""></a>
+    <a href="#" class="media-object"><img src="//lorempixel.com/48/48" alt=""></a>
   </div>
 
   <div class="media-body">
-    <p><%= comment.user.email %></p>
-    <p><%= comment.created_at.strftime('%Y-%m-%d %H:%M') %></p>
-    <p><%= comment.content %></p>
-    <%= render comment.comments if not comment.comments.empty? %>
+    <div class="panel panel-default" id="comment-panel-<%= comment.id %>">
+      <div class="panel-heading">
+        <%= link_to comment.user.email, '#' %> - <%= time_ago_in_words(comment.created_at) %>
+      </div>
+
+      <div class="panel-body">
+        <p id="comment-content-<%= comment.id %>"><%= comment.content %></p>
+        <p id="reply-form-for-<%= comment.id %>">
+          <%= link_to 'Reply', new_comment_path(parent_id: comment.id), class: 'btn-sm btn-default pull-right', remote: true %>
+        </p>
+      </div>
+    </div>
+
+    <%= render comment.replies %>
   </div>
 </div>

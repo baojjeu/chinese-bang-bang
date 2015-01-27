@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   root 'topics#index'
 
   resources :topics do
-    resources :comments
     collection do
       get :random
     end
@@ -17,6 +16,8 @@ Rails.application.routes.draw do
 
     resources :examples
   end
+
+  resources :comments
 
   namespace :admin do
     root 'base#index', as: ''
