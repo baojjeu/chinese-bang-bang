@@ -1,3 +1,21 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+  speakingAudio = $('.speaking-audio')[0]
+
+  $('.button-play').on 'click', ->
+    $('.button-play').blur()
+                     .addClass('active')
+    $('.button-pause').removeClass('active')
+    speakingAudio.play()
+
+  $('.button-pause').on 'click', ->
+    $('.button-pause').blur()
+                      .addClass('active')
+    $('.button-play').removeClass('active')
+    speakingAudio.pause()
+
+  $('.button-stop').on 'click', ->
+    $('.button-stop').blur()
+    $('.button-play').removeClass('active')
+    $('.button-pause').removeClass('active')
+    speakingAudio.pause()
+    speakingAudio.currentTime = 0

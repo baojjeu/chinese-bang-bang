@@ -3,11 +3,10 @@ $('.comments').find('#no-comment').remove();
 <% if @comment.parent_comment_id.nil? %>
   $('.comments').prepend("<%= j(render(@comment)) %>");
 <% else %>
-$("#comment-panel-<%= @comment.parent_comment_id %>").after("<%= j(render(@comment)) %>");
-$('.new_comment_form').remove();
+  $("#comment-panel-<%= @comment.parent_comment_id %>").after("<%= j(render(@comment)) %>");
+  $('.new_comment_form').remove();
 <% end %>
+
 $(".new_created_comment").slideDown('slow');
-
-
 $('#new_comment').get(0).reset();
 $('.comment_content').removeClass('has-error');
