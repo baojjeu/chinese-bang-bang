@@ -13,18 +13,7 @@
               <% end %>
             </ruby>
             <br>
-            <audio src="<%= @topic.hanyu.speaking.url.to_s %>" class="speaking-audio" id="speaking-<%= @topic.id %>"></audio>
-            <div class="buttons">
-              <button type="button" class="btn btn-default btn-sm button-pause">
-                <span class="glyphicon glyphicon-pause"></span>
-              </button>
-              <button type="button" class="btn btn-default btn-sm button-stop">
-                <span class="glyphicon glyphicon-stop"></span>
-              </button>
-              <button type="button" class="btn btn-default btn-sm button-play">
-                <span class="glyphicon glyphicon-play"></span>
-              </button>
-            </div>
+            <%= render 'layouts/audio_buttons', object: @topic %>
           </div>
         </div>
       </div>
