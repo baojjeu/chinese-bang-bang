@@ -7,7 +7,7 @@
         <div class="panel-body">
           <div id="pronunciation">
             <ruby>
-              <% split_topic(@topic.name).each do |word| %>
+              <% generate_pinyin_ignore_sym_for(@topic.name).each do |word| %>
                 <%= word %>
                 <rp>(</rp><rt><%= PinYin.sentence(word, :unicode) %></rt><rp>)</rp>
               <% end %>
