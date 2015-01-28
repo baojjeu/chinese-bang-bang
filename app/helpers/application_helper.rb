@@ -1,6 +1,6 @@
 module ApplicationHelper
   def customized_content_for(content, class_name)
-    content.gsub(/`([^`]*)`/, '<span class='+ class_name +'>\1</span>').html_safe
+    content.gsub(/`([^`]*)`/, '<code>\1</code>').html_safe
   end
 
   def split_topic(name)
