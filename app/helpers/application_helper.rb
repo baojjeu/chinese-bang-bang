@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def customized_content_for(content, class_name)
+  def customized_content_for(content)
     content.gsub(/`([^`]*)`/, '<code>\1</code>').html_safe
   end
 
