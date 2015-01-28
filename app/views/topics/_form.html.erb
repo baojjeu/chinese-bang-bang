@@ -10,9 +10,15 @@
           input_html: { class: 'form-control' },
           wrapper_html: { class: 'form-group' } %>
 
-        <%= hanyu_field.input :speaking,
-          input_html: { class: 'form-control' },
-          wrapper_html: { class: 'form-group' } %>
+        <%= hanyu_field.input :slow_speaking,
+              label: 'Slow Speaking Audio File',
+              wrapper_html: { class: 'form-group' },
+              input_html: { class: 'form-control' } %>
+
+        <%= hanyu_field.input :normal_speaking,
+              label: 'Normal Speaking Audio File',
+              wrapper_html: { class: 'form-group' },
+              input_html: { class: 'form-control' } %>
       <% end %>
 
       <%= f.input :info,

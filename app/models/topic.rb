@@ -9,9 +9,9 @@ class Topic < ActiveRecord::Base
   has_many :collectors, through: :stars, source: :user
 
   has_many :examples, dependent: :destroy
-  has_one :hanyu, as: :pinyinable
+  has_one :hanyu, as: :pinyinable, dependent: :destroy
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   validates :name, presence: true
 

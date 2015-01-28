@@ -48,3 +48,12 @@ body {
     color: #FFCE54;
   }
 }
+
+.audio-buttons {
+  text-transform: uppercase;
+  margin-top: 28px;
+  .example-audio {
+    display: none;
+    font-size: 14px;
+  }
+}

@@ -1,12 +1,23 @@
-<audio src="<%= object.hanyu.speaking.url.to_s %>" class="speaking-audio" id="speaking-<%= @topic.id %>"></audio>
-<div class="buttons">
-  <button type="button" class="btn btn-default btn-sm button-pause">
-    <span class="glyphicon glyphicon-pause"></span>
-  </button>
-  <button type="button" class="btn btn-default btn-sm button-stop">
-    <span class="glyphicon glyphicon-stop"></span>
-  </button>
-  <button type="button" class="btn btn-default btn-sm button-play">
-    <span class="glyphicon glyphicon-play"></span>
-  </button>
+<div class="audio-buttons">
+  <div class="<%= object.class == Topic ? 'topic-audio' : 'example-audio' %>">
+    <div class="slow-speed">
+      <audio src="<%= object.hanyu.slow_speaking.url.to_s %>" class="slow-speaking-audio"></audio>
+      <span class="label label-default">Slow Speaking Temple</span>
+      <div class="btn-group">
+        <button type="button" class="btn btn-default btn-xs button-pause"><span class="glyphicon glyphicon-pause"></span></button>
+        <button type="button" class="btn btn-default btn-xs button-stop"><span class="glyphicon glyphicon-stop"></span></button>
+        <button type="button" class="btn btn-default btn-xs button-play"><span class="glyphicon glyphicon-play"></span></button>
+      </div>
+    </div>
+
+    <div class="normal-speed">
+      <audio src="<%= object.hanyu.normal_speaking.url.to_s %>" class="normal-speaking-audio"></audio>
+      <span class="label label-success">Normal Speaking Temple</span>
+      <div class="btn-group">
+        <button type="button" class="btn btn-default btn-xs button-pause"><span class="glyphicon glyphicon-pause"></span></button>
+        <button type="button" class="btn btn-default btn-xs button-stop"><span class="glyphicon glyphicon-stop"></span></button>
+        <button type="button" class="btn btn-default btn-xs button-play"><span class="glyphicon glyphicon-play"></span></button>
+      </div>
+    </div>
+  </div>
 </div>

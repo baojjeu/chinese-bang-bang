@@ -3,5 +3,6 @@ class Hanyu < ActiveRecord::Base
 
   validates :meaning, presence: true
 
-  mount_uploader :speaking, SpeakingUploader
+  mount_uploader :slow_speaking, SpeakingUploader
+  mount_uploader :normal_speaking, SpeakingUploader
 end

@@ -70,7 +70,7 @@ class TopicsController < ApplicationController
     end
 
     def topic_params
-      params.require(:topic).permit(:name, :info, { hanyu_attributes: [:meaning, :speaking] })
+      params.require(:topic).permit(:name, :info, { hanyu_attributes: [:meaning, :slow_speaking, :normal_speaking] })
     end
 
     def publishing?

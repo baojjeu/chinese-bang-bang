@@ -39,6 +39,6 @@ class ExamplesController < ApplicationController
     end
 
     def example_params
-      params.require(:example).permit(:sentence, { hanyu_attributes: [:meaning, :pinyin, :speaking] })
+      params.require(:example).permit(:sentence, { hanyu_attributes: [:meaning, :pinyin, :slow_speaking, :normal_speaking] })
     end
 end

@@ -5,7 +5,7 @@ class Example < ActiveRecord::Base
   after_create :generate_pinyin
 
   belongs_to :topic
-  has_one :hanyu, as: :pinyinable
+  has_one :hanyu, as: :pinyinable, dependent: :destroy
 
   validates :sentence, presence: true
 

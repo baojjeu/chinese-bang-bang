@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
 
-  has_many :stars
-  has_many :stared_topics, through: :stars, source: :topic
-  has_many :comments
+  has_many :stars, dependent: :destroy
+  has_many :stared_topics, through: :stars, source: :topic, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
