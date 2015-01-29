@@ -1,6 +1,8 @@
 <div class="media new_comment_form">
   <div class="media-left">
-    <a href="#" class="media-object"><img src="//lorempixel.com/48/48" alt=""></a>
+    <%= link_to current_user, class: 'media-object' do %>
+      <%= image_tag thumb_for(current_user) %>
+    <% end %>
   </div>
 
   <div class="media-body">
