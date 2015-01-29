@@ -1,7 +1,7 @@
 $ ->
   $('.button-play').on 'click', ->
-    $('audio')[0].pause()
-    $('audio')[0].currentTime = 0
+    $.each $('audio'), ->
+        this.pause()
     $('.button-play').removeClass('active')
     $('.button-pause').removeClass('active')
     $(this).blur().addClass('active')
