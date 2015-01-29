@@ -14,7 +14,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'simple_form'
 gem 'ruby-pinyin'
-gem 'devise'
+gem 'monban'
 gem 'faker'
 gem 'kaminari'
 gem 'font-awesome-sass'
