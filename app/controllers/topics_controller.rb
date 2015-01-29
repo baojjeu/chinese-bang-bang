@@ -46,7 +46,7 @@ class TopicsController < ApplicationController
   end
 
   def random
-    @topic = Topic.is_published.map { |topic| topic.id }.sample
+    @topic = Topic.were_published.map { |topic| topic.id }.sample
     redirect_to topic_path(@topic)
   end
 
