@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= image_tag profile_pic_for @user %>
+        <p><%= @user.profile.name %></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">Stared Topics</div>
+      <div class="panel-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Topic</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @user.stared_topics %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

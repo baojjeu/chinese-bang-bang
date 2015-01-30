@@ -7,7 +7,7 @@ class Admin::BaseController < ApplicationController
 
   private
     def admin_only
-      if !current_user.admin?
+      if !current_user.admi?
         redirect_to root_url
       end
     end

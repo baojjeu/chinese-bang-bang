@@ -14,4 +14,12 @@ module ApplicationHelper
       "http://gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email.downcase)}.png?s=48"
     end
   end
+
+  def profile_pic_for(user)
+    if user.profile.avatar.present?
+      user.profile.avatar.profile_pic.url
+    else
+      "http://gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email.downcase)}.png?s=200"
+    end
+  end
 end
