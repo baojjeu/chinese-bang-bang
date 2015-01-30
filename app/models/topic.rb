@@ -6,7 +6,7 @@ class Topic < ActiveRecord::Base
   after_save :generate_pinyin
 
   has_many :stars
-  has_many :collectors, through: :stars, source: :user
+  has_many :collectors, through: :stars, source: :user, dependent: :destroy
 
   has_many :examples, dependent: :destroy
   has_one :hanyu, as: :pinyinable, dependent: :destroy
@@ -22,8 +22,11 @@ class Topic < ActiveRecord::Base
     published_at?
   end
 
-  private
-    def generate_pinyin
-      self.hanyu.update pinyin: PinYin.sentence(name, :unicode)
-    end
+  def hanyu
+    super || build_hanyu
+  end
+
+  def generate_pinyin
+    hanyu.update pinyin: PinYin.sentence(name, :unicode)
+  end
 end

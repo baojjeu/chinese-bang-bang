@@ -11,8 +11,11 @@ class Example < ActiveRecord::Base
 
   accepts_nested_attributes_for :hanyu
 
-  private
-    def generate_pinyin
-      self.hanyu.update pinyin: PinYin.sentence(sentence, :unicode)
-    end
+  def hanyu
+    super || build_hanyu
+  end
+
+  def generate_pinyin
+    hanyu.update pinyin: PinYin.sentence(sentence, :unicode)
+  end
 end

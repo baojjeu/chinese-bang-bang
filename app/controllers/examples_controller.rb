@@ -4,7 +4,6 @@ class ExamplesController < ApplicationController
 
   def new
     @example = @topic.examples.build
-    @example.build_hanyu
   end
 
   def edit

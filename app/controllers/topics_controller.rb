@@ -1,6 +1,5 @@
 class TopicsController < ApplicationController
 
-  before_action :authenticate_user!, except: :index
   before_action :set_topic, except: [:new, :create, :index, :random]
 
   def index
@@ -16,7 +15,6 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new
-    @topic.build_hanyu
   end
 
   def edit

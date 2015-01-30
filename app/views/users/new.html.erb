@@ -1,0 +1,22 @@
+<h1>Sign Up</h1>
+<%= simple_form_for @user, html: { multiple: true } do |f| %>
+  <%= f.input :email, as: :email,
+    wrapper_html: { class: 'form-group' },
+    input_html: { class: 'form-control' } %>
+
+  <%= f.simple_fields_for :profile do |builder| %>
+    <%= builder.input :name,
+      wrapper_html: { class: 'form-group' },
+      input_html: { class: 'form-control' } %>
+
+    <%= builder.input :avatar, as: :file,
+      wrapper_html: { class: 'form-group' },
+      input_html: { class: 'form-control' } %>
+  <% end %>
+
+  <%= f.input :password, as: :password,
+    wrapper_html: { class: 'form-group' },
+    input_html: { class: 'form-control' } %>
+
+  <%= f.button :submit %>
+<% end %>

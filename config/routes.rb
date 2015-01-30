@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+
+  resource :session, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create, :show]
   root 'topics#index'
 
+  resources :users
   resources :topics do
     collection do
       get :random

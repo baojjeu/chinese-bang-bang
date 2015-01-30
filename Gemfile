@@ -15,9 +15,11 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'simple_form'
 gem 'ruby-pinyin'
 gem 'monban'
+gem 'monban-generators'
 gem 'faker'
 gem 'kaminari'
 gem 'font-awesome-sass'
+gem 'bcrypt'
 
 gem 'carrierwave'
 gem 'fog'

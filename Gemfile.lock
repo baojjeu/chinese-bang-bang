@@ -169,6 +169,8 @@ GEM
       bcrypt
       rails
       warden
+    monban-generators (0.0.4)
+      monban (>= 0.0.12)
     multi_json (1.10.1)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -219,7 +221,7 @@ GEM
       rspec-mocks (~> 3.1.0)
       rspec-support (~> 3.1.0)
     rspec-support (3.1.2)
-    ruby-pinyin (0.4.4)
+    ruby-pinyin (0.4.5)
       rmmseg-cpp (~> 0.2)
     sass (3.2.19)
     sass-rails (4.0.5)
@@ -263,6 +265,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   capybara (= 2.4.4)
   carrierwave
   coffee-rails (~> 4.0.0)
@@ -277,6 +280,7 @@ DEPENDENCIES
   kaminari
   mini_magick
   monban
+  monban-generators
   pg (= 0.17.1)
   rails (= 4.1.8)
   rails_12factor (= 0.0.2)
