@@ -22,7 +22,7 @@ gem 'font-awesome-sass'
 gem 'bcrypt'
 
 gem 'carrierwave'
-gem 'fog', '1.16.0'
+gem 'fog', git: 'https://github.com/baojjeu/fog'
 gem "mini_magick"
 
 group :development, :test do
