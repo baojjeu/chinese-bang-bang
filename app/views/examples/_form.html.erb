@@ -1,8 +1,7 @@
 <div class="panel">
   <div class="panel-body">
     <%= simple_form_for [@topic, @example] do |f| %>
-      <%= f.input :sentence,
-        label: 'Example Sentence',
+      <%= f.input :sentence, label: 'Example Sentence',
         wrapper_html: { class: 'form-group' },
         input_html: { class: 'form-control' } %>
 
