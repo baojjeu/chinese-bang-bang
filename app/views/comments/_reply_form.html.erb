@@ -13,8 +13,12 @@
 
       <div class="panel-body">
         <%= simple_form_for @comment, html: { remote: true } do |f| %>
-          <%= f.input :parent_comment_id, as: :hidden, input_html: { value: params[:parent_id] } %>
-          <%= f.input :content, input_html: { class: 'form-control', rows: 10 }, wrapper_html: { class: 'form-group' }, label_html: { class: 'control-label' } %>
+          <%= f.input :parent_comment_id, as: :hidden,
+            input_html: { value: params[:parent_id] } %>
+          <%= f.input :content,
+            input_html: { class: 'form-control', rows: 10 },
+            wrapper_html: { class: 'form-group' },
+            label_html: { class: 'control-label' } %>
           <%= f.button :submit, class: "pull-right" %>
         <% end %>
       </div>
